@@ -62,9 +62,9 @@ public class Startup
 
     private static readonly List<Product> products = new List<Product>
     {
-        new Product { Id = 1, Name = "Shoes", Price = 50, Image = "images/shoes.jpg" },
-        new Product { Id = 2, Name = "Apple", Price = 5, Image = "images/apple.png" },
-        new Product { Id = 3, Name = "Hat", Price = 15, Image = "images/hat.jpg" }
+        new Product { Id = 1, Name = "Shoes", Price = 50, Image = "shoes.jpg" },
+        new Product { Id = 2, Name = "Apple", Price = 5, Image = "apple.png" },
+        new Product { Id = 3, Name = "Hat", Price = 15, Image = "hat.jpg" }
     };
 
     public void ConfigureServices(IServiceCollection services)
@@ -178,7 +178,7 @@ public class Startup
             endpoints.MapGet("/images", context =>
             {
                 var imageName = context.Request.Query["name"].ToString();
-                var filePath = System.IO.Path.Combine("public", imageName);
+                var filePath = System.IO.Path.Combine("public/images", imageName);
                 return context.Response.SendFileAsync(filePath);
             });
 
